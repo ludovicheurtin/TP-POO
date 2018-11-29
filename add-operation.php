@@ -1,28 +1,45 @@
 <?php
 session_start();
  
-$champs=true;
-$label=true;
-$montant=true;
- 
- 
+function redirection_add_operation() {
+    header("Location: add-operation.php");
+    die;
+}
+
+function redirection_operations() {
+    header("Location: operations.php");
+    die;
+}
+
+$champs=false; 
 //Verifier si le formulaire est complet
 if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
-    echo "Les champs sont obligatoire";
+    echo "Les champs sont obligatoires";
     $champs=false;
-    $label=false;
-    $montant=false;
 }else {
     $champs=true;
-    $label=true;
-    $montant=true;
 }
 
 // Quand formulaire est complet
-if (($champs===true) && ($label===true) && ($montant===true)) {
-    header("location: operations.php");
-}
+if ($champs===true) {
+    redirection_operations();
 
+    // Vérification si le nom de l'opération n'existe as déjà dans le fichier .csv
+    $file = fopen("operations.csv", "r");
+    // if($sameop == true) {
+    if(isset($_POST["label"])) {
+        $label = $_POST["label"];
+        $montant = $_POST["montant"];
+        $operations = array(
+            "label" => $label,
+            "montant" => $montant,
+        );
+        $fp = fopen("operations.csv", "a+");
+        fputcsv($fp, $operations);
+        fclose($fp);
+        redirection_operations();
+    }
+}
 ?><!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -34,7 +51,10 @@ if (($champs===true) && ($label===true) && ($montant===true)) {
         <header>
             <h1>Ajouter une opération</h1>
         </header>
- 
+        <?php if(!empty($_SESSION["error"])): ?>
+        <p><?php echo $_SESSION["error"] ?></p>
+        <?php unset($_SESSION["error"]) ?>
+        <?php endif; ?>
         <form action="" method="POST">
             <div>
                 <input type="text" name="label" placeholder="Saisir un label">
