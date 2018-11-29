@@ -1,28 +1,26 @@
 <?php
 session_start();
  
-$champs=false;
-$label=false;
-$montant=false;
+$champs=true;
+$label=true;
+$montant=true;
  
 
 //Verifier si le formulaire est complet
-if(!empty($_POST["label"]) && (!empty($_POST["montant"]))) {
+if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
     echo "Les champs sont obligatoire";
+    $champs=false;
+    $label=false;
+    $montant=false;
+}else {
     $champs=true;
     $label=true;
     $montant=true;
 }
 
-var_dump($_POST);
-var_dump($champs);
-var_dump($label);
-var_dump($montant);
-
-
 // Quand formulaire est complet
 if (($champs===true) && ($label===true) && ($montant===true)) {
-    header("location: index.php");
+    header("location: operations.php");
 }
 
 
@@ -44,10 +42,10 @@ if (($champs===true) && ($label===true) && ($montant===true)) {
             </div>
             <br>
             <div>
-                <input type="text" name="montant" placeholder="Saisir un montant">
+                <input type="number" name="montant" placeholder="Saisir un montant">
             </div>
+            <button type="submit" name="btn">OK</button>
         </form>
-
-        <button type="submit" name="btn">OK</button>
+        
     </body>
 </html>
