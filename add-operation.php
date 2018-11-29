@@ -11,8 +11,8 @@ function redirection_operations() {
     die;
 }
 
-$champs=false; 
 //Verifier si le formulaire est complet
+$champs=false;
 if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
     echo "Les champs sont obligatoires";
     $champs=false;
@@ -22,8 +22,6 @@ if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
 
 // Quand formulaire est complet
 if ($champs===true) {
-    redirection_operations();
-
     // Vérification si le nom de l'opération n'existe as déjà dans le fichier .csv
     $file = fopen("operations.csv", "r");
     // if($sameop == true) {
@@ -46,7 +44,6 @@ if ($champs===true) {
         <meta charset="UTF-8">
         <title>Ajouter opérations</title>
     </head>
- 
     <body>
         <header>
             <h1>Ajouter une opération</h1>
@@ -65,6 +62,5 @@ if ($champs===true) {
             </div>
             <button type="submit" name="btn">OK</button>
         </form>
-        
     </body>
 </html>
