@@ -20,7 +20,7 @@ if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
  
 // Quand formulaire est complet
 if (($champs===true) && ($label===true) && ($montant===true)) {
-    header("location: index.php");
+    header("location: operations.php");
 }
  
 
@@ -42,7 +42,7 @@ if (($champs===true) && ($label===true) && ($montant===true)) {
             </div>
             <br>
             <div>
-                <input type="text" name="montant" placeholder="Saisir un montant">
+                <input type="number" name="montant" placeholder="Saisir un montant">
             </div>
             <button type="submit" name="btn">OK</button>
         </form>
