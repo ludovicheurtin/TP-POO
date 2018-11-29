@@ -5,7 +5,7 @@ $champs=true;
 $label=true;
 $montant=true;
  
-
+ 
 //Verifier si le formulaire est complet
 if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
     echo "Les champs sont obligatoire";
@@ -22,7 +22,6 @@ if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
 if (($champs===true) && ($label===true) && ($montant===true)) {
     header("location: operations.php");
 }
-
 
 ?><!DOCTYPE html>
 <html lang="fr">
