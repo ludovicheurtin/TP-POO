@@ -39,8 +39,7 @@ if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
                 <input type="text" name="montant" placeholder="Saisir un montant">
             </div>
         </form>
-        <br>
- 
+        
         <button type="submit">OK</button>
  
     </body>
