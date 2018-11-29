@@ -34,6 +34,13 @@ session_start();
 				border-color: black;
 				margin-bottom: 5px;
 			}
+            table {
+                counter-reset: tableCount;     
+            }
+            .counterCell:before {              
+                content: counter(tableCount); 
+                counter-increment: tableCount; 
+}
 </STYLE>
 <body>
 	<header>
@@ -50,82 +57,82 @@ session_start();
 		</thead>
 		<tbody class="css-serial">
 			<tr>
-				<td>1</td>
+				<td class="counterCell"></td>
 				<td></td>
 				<td></td>				
 			</tr>
 			<tr>
-				<td>2</td>
+				<td class="counterCell"></td>
 				<td></td>
 				<td></td>				
 			</tr>
 			<tr>
-				<td>3</td>
+				<td class="counterCell"></td>
 				<td></td>
 				<td></td>		
 			</tr>
 			<tr>
-				<td>4</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>
 			</tr>
-						<tr>
-				<td>5</td>
+			<tr>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>				
 			</tr>
 			<tr>
-				<td>6</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>				
 			</tr>
 			<tr>
-				<td>7</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>		
 			</tr>
 			<tr>
-				<td>8</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>
 			</tr>
-						<tr>
-				<td>9</td>
+			<tr>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>				
 			</tr>
 			<tr>
-				<td>10</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>				
 			</tr>
 			<tr>
-				<td>11</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>		
 			</tr>
 			<tr>
-				<td>12</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>
 			</tr>
-						<tr>
-				<td>13</td>
+			<tr>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>				
 			</tr>
 			<tr>
-				<td>14</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>				
 			</tr>
 			<tr>
-				<td>15</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>		
 			</tr>
 			<tr>
-				<td>16</td>
+                <td class="counterCell"></td>
 				<td></td>
 				<td></td>
 			</tr>
