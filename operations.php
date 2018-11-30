@@ -2,7 +2,7 @@
 session_start();
  
 $host = "localhost";
-$port = 3701;
+$port = 3306;
 $database = "banque";
 $login = "root";
 $password = "";
@@ -36,6 +36,7 @@ $result = $pdo->query($query);
 <STYLE> A {text-decoration: none;}
         table{border-collapse: collapse;
               width: 1000px;
+              text-align: center;
             }
         a{color: black;}
         .square{
