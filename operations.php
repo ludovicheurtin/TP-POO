@@ -14,8 +14,7 @@ try {
         $password
     );
  
-// $id=1;
-// $pdo-> exec("DELETE FROM operations WHERE id=$id");
+
 
 $query = "SELECT id, label, montant FROM operations";
 $result = $pdo->query($query);
@@ -26,7 +25,9 @@ $result = $pdo->query($query);
 } finally {
     $pdo = null;
 }
- 
+
+
+
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -114,19 +115,17 @@ $result = $pdo->query($query);
                 <th>n°</th>
                 <th>libellé</th>
                 <th>montant</th>
-                <th></th>
             </tr>
         </thead>
         <tbody class="css-serial">
 			<?php
-			while($row = $result->fetch()) 
-			{echo '<tr>
-				<td>' . $row['id'] . '</td>
+			$id = 0;
+			while($row = $result->fetch()) {
+				$id++;
+				echo '<tr>
+				<td>' . $id . '</td>
 			<td>' . $row['label']. '</td>
-			<td>' . $row['montant'] . '</td>
-			<td class="cell">
-                <button type="button" class="supr" name="">supprimer</button>
-			</td>
+			<td>' . $row['montant'] . ' € </td>
 			</tr>';
 			}
 			?>
