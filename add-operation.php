@@ -46,7 +46,7 @@ try {
 finally {
     $pdo = null;
 }
-if (isset($_POST["btn"])) {
+if (isset($_POST["btn"]) && $champs===true) {
     redirection_operations();
 }
 ?><!DOCTYPE html>
