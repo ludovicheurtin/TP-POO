@@ -19,7 +19,6 @@ try {
 
 $query = "SELECT id, label, montant FROM operations";
 $result = $pdo->query($query);
-var_dump($result);
  
 } catch (PDOException $e) {
     //var_dump($e->getMessage());
@@ -126,9 +125,9 @@ var_dump($result);
 			<td>' . $row['label']. '</td>
 			<td>' . $row['montant'] . '</td>
 			<td class="cell">
-                <a href="?delete=<?php echo $index ?>" class="supr">supprimer</a>
+                <button type="button" class="supr" name="">supprimer</button>
 			</td>
-			</td>';
+			</tr>';
 			}
 			?>
         </tbody>
