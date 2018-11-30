@@ -2,7 +2,7 @@
 session_start();
  
 $host = "localhost";
-$port = 3701;
+$port = 3306;
 $database = "banque";
 $login = "root";
 $password = "";
@@ -76,12 +76,13 @@ $result = $pdo->query($query);
             }
             .supr:hover{                animation-name: couleur;
                 animation-duration: 0.4s;
-                   animation-fill-mode: forwards;}
+                animation-fill-mode: forwards;}
             .supr{
                 font-size: 15px;
+                border-radius: 10px;
             }
             .cell:hover {
-                   animation-name: couleurA;
+                animation-name: couleurA;
                 animation-duration: 0.6s;
                 animation-fill-mode: forwards;
             }
@@ -90,8 +91,8 @@ $result = $pdo->query($query);
                 0% {}
  
                   100% {
-                      color: white;
-                      font-size: 20px;
+                      color: red;
+                      font-size: 17px;
                       }
             }
             @keyframes couleurA {
