@@ -2,6 +2,7 @@
 session_start();
  
 $host = "localhost";
+// Pensez à vérifier que le port ci-dessous correspond à celui de votre base de données
 $port = 3701;
 $database = "banque";
 $login = "root";
