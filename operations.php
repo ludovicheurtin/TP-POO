@@ -119,16 +119,7 @@ var_dump($result);
             </tr>
         </thead>
         <tbody class="css-serial">
-            <!-- <tr>
-                <td class="counterCell"></td>
-                <td></td>
-                <td></td>
-                    <td class="cell">
-                        <a href="?delete=<?php echo $index ?>" class="supr">supprimer</a>
-                    </td>
-            </tr> -->
 			<?php
-			// 
 			while($row = $result->fetch()) 
 			{echo '<tr>
 				<td>' . $row['id'] . '</td>
