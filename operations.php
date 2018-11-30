@@ -1,11 +1,27 @@
 <?php
 session_start();
 
-$host="localhost";
-$port="3306";
-$database="banque";
-$login="root";
-$password="";
+$host = "localhost";
+$port = 3306;
+$database = "banque";
+$login = "root";
+$password = "";
+
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;port=$port;dbname=$database",
+        $login,
+        $password
+    );
+
+$pdo-> exect("DELETE FROM operations WHERE id=" . $_POST['id']);
+
+} catch (PDOException $e) {
+	//var_dump($e->getMessage());
+    var_dump("Pas de connexion à la base de données.");
+} finally {
+    $pdo = null;
+}
 
 ?><!DOCTYPE html>
 <html>
@@ -39,7 +55,8 @@ $password="";
 				border-color: black;
 				margin-bottom: 5px;
 			}
-            table {
+
+		 table {
                 counter-reset: tableCount;     
             }
             .counterCell:before {              
@@ -62,7 +79,6 @@ $password="";
    				animation-name: couleurA;
 				animation-duration: 0.6s;
     			animation-fill-mode: forwards;
-
     		}
 			@keyframes couleur {
  
