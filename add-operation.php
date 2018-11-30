@@ -46,6 +46,9 @@ try {
 finally {
     $pdo = null;
 }
+if (isset($_POST["btn"])) {
+    redirection_operations();
+}
 ?><!DOCTYPE html>
 <html lang="fr">
     <head>
