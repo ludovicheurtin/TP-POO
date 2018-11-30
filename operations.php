@@ -2,7 +2,7 @@
 session_start();
  
 $host = "localhost";
-$port = 3306;
+$port = 3701;
 $database = "banque";
 $login = "root";
 $password = "";
