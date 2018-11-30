@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+$host="localhost";
+$port="3306";
+$database="banque";
+$login="root";
+$password="";
 
 ?><!DOCTYPE html>
 <html>
@@ -39,8 +44,44 @@ session_start();
             }
             .counterCell:before {              
                 content: counter(tableCount); 
-                counter-increment: tableCount; 
-}
+                counter-increment: tableCount;
+			}
+			.cell{
+				width: 100px;
+				border: solid;
+				border-color: black;
+				text-align: center;
+			}
+			.supr:hover{			    animation-name: couleur;
+    			animation-duration: 0.4s;
+   				animation-fill-mode: forwards;}
+			.supr{
+				font-size: 15px;
+			}
+			.cell:hover {
+   				animation-name: couleurA;
+				animation-duration: 0.6s;
+    			animation-fill-mode: forwards;
+
+    		}
+			@keyframes couleur {
+ 
+    			0% {}
+ 
+      			100% {
+          			color: white;
+          			font-size: 20px;
+  					}
+			}
+			@keyframes couleurA {
+ 
+    			0% {}
+ 
+      			100% {
+        			background: red;
+        			border-color: red;
+ 				 }
+			}
 </STYLE>
 <body>
 	<header>
@@ -53,88 +94,41 @@ session_start();
 				<th>n°</th>
 				<th>libellé</th>
 				<th>montant</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody class="css-serial">
 			<tr>
 				<td class="counterCell"></td>
 				<td></td>
-				<td></td>				
+				<td></td>
+					<td class="cell">
+						<a href="?delete=<?php echo $index ?>" class="supr">supprimer</a>
+					</td>				
 			</tr>
 			<tr>
 				<td class="counterCell"></td>
 				<td></td>
-				<td></td>				
+				<td></td>
+					<td class="cell">
+						<a href="?delete=<?php echo $index ?>" class="supr">supprimer</a>
+					</td>				
 			</tr>
 			<tr>
 				<td class="counterCell"></td>
 				<td></td>
-				<td></td>		
+				<td></td>
+					<td class="cell">
+						<a href="?delete=<?php echo $index ?>" class="supr">supprimer</a>
+					</td>		
 			</tr>
 			<tr>
                 <td class="counterCell"></td>
 				<td></td>
 				<td></td>
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>				
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>				
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>		
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>				
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>				
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>		
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>				
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>				
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>		
-			</tr>
-			<tr>
-                <td class="counterCell"></td>
-				<td></td>
-				<td></td>
+					<td class="cell">
+						<a href="?delete=<?php echo $index ?>" class="supr">supprimer</a>
+					</td>
 			</tr>
 		</tbody>
 	</table>
