@@ -55,6 +55,21 @@ if (isset($_POST["btn"]) && $champs===true) {
         <meta charset="UTF-8">
         <title>Ajouter opérations</title>
     </head>
+    <STYLE>
+        header, form{
+            text-align: center;
+        }
+        button{
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+            border-color: #4a9b9d;
+            border-radius: 10px;
+            background-color: #4a9b9d;
+        }
+    </STYLE>
     <body>
         <header>
             <h1>Ajouter une opération</h1>
@@ -71,6 +86,7 @@ if (isset($_POST["btn"]) && $champs===true) {
             <div>
                 <input type="number" name="montant" placeholder="Saisir un montant">
             </div>
+            <br>
             <button type="submit" name="btn">OK</button>
         </form>
     </body>
