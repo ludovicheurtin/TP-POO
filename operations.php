@@ -116,7 +116,15 @@ $pdo-> exect("DELETE FROM operations WHERE id=" . $_POST['id']);
 		<tbody class="css-serial">
 			<tr>
 				<td class="counterCell"></td>
+<<<<<<< Updated upstream
 				<td></td>
+=======
+				<td><?php var_dump($operations) ?> </td>
+				<td></td>				
+			</tr>
+			<tr>
+				<td class="counterCell"></td>
+>>>>>>> Stashed changes
 				<td></td>
 					<td class="cell">
 						<a href="?delete=<?php echo $index ?>" class="supr">supprimer</a>

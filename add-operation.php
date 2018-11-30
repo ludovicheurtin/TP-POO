@@ -1,6 +1,6 @@
 <?php
 session_start();
- 
+
 function redirection_add_operation() {
     header("Location: add-operation.php");
     die;
@@ -10,33 +10,41 @@ function redirection_operations() {
     header("Location: operations.php");
     die;
 }
+ 
+$host = "localhost";
+$port = 3701;
+$database = "banque";
+$login = "root";
+$password = "";
 
-//Verifier si le formulaire est complet
-$champs=false;
-if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
-    echo "Les champs sont obligatoires";
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;port=$port;dbname=$database",
+        $login,
+        $password
+    );
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //Verifier si le formulaire est complet
     $champs=false;
-}else {
-    $champs=true;
-}
-
-// Quand formulaire est complet
-if ($champs===true) {
-    // Vérification si le nom de l'opération n'existe as déjà dans le fichier .csv
-    $file = fopen("operations.csv", "r");
-    // if($sameop == true) {
-    if(isset($_POST["label"])) {
-        $label = $_POST["label"];
-        $montant = $_POST["montant"];
-        $operations = array(
-            "label" => $label,
-            "montant" => $montant,
-        );
-        $fp = fopen("operations.csv", "a+");
-        fputcsv($fp, $operations);
-        fclose($fp);
-        redirection_operations();
+    if(empty($_POST["label"]) or (empty($_POST["montant"]))) {
+        echo "Les champs sont obligatoires";
+        $champs=false;
+    }else {
+        $champs=true;
     }
+
+    // Quand formulaire est complet
+    if ($champs===true) {
+        $stmt = $pdo->prepare("INSERT INTO operations(label, montant) VALUES (:unLabel, :unMontant);");
+        $stmt->bindParam(':unLabel', $label);
+        $label = $_POST["label"];
+        $stmt->bindParam(':unMontant', $montant);
+        $montant = $_POST["montant"];
+        $stmt->execute();
+    }
+}
+finally {
+    $pdo = null;
 }
 ?><!DOCTYPE html>
 <html lang="fr">
