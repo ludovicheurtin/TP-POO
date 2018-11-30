@@ -1,5 +1,26 @@
 <?php
 session_start();
+ 
+$host = "localhost";
+$port = 3701;
+$database = "banque";
+$login = "root";
+$password = "";
+ 
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;port=$port;dbname=$database",
+        $login,
+        $password
+    );
+    if(isset($_POST["crdb"])) {
+        $pdo->exec("DROP DATABASE IF EXISTS banque; CREATE DATABASE banque; USE banque; CREATE TABLE operations(id INT(6) AUTO_INCREMENT PRIMARY KEY, label VARCHAR(30) NOT NULL, montant INT(10) NOT NULL );");}
+} catch (PDOException $e) {
+    // var_dump($e->getMessage());
+    echo("Pas de connexion à la base de données. Merci d'utiliser cette requête SQL pour la créer : CREATE DATABASE banque; USE banque; CREATE TABLE operations(id INT(6) AUTO_INCREMENT PRIMARY KEY, label VARCHAR(30) NOT NULL, montant INT(10) NOT NULL );");
+} finally {
+    $pdo = null;
+}
 if(isset($_POST["operation"])) {
     header("Location: operations.php");
         die;
@@ -41,6 +62,10 @@ if(isset($_POST["operation"])) {
     <form action="" method="post">
         <h2>Mes opérations</h2>
         <button type="submit" name="operation">OK</button>
+    </form>
+    <br>
+    <form action="" method="post">
+        <button type="submit" name="crdb">Réinitialiser la base de données</button>
     </form>
 </body>
 </html>
