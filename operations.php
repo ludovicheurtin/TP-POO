@@ -38,16 +38,16 @@ $result = $pdo->query($query);
               width: 1000px;
               text-align: center;
             }
-        a{color: black;}
+        a{color: white;}
         .square{
                 text-align: center;
                 width:70px;
                 height:20px;
                 background:white;
                 margin-left: 0px;
-                border: solid;                
-                border-color: black;
-                margin-bottom: 5px;        
+                border: none;
+                margin-bottom: 5px; 
+                background-color: #0a5f71;      
         }
         .carre{
                 text-align: center;
@@ -57,11 +57,15 @@ $result = $pdo->query($query);
                 margin-left: 900px;
                 position: absolute;
                 top: 8px;
-                border: solid;
-                border-color: black;
+                border: none;
                 margin-bottom: 5px;
+                background-color: #0a5f71;
             }
- 
+        thead{
+                background-color: #0a5f71;
+                border: none;
+                color: white;
+            } 
          table {
                 counter-reset: tableCount;     
             }
